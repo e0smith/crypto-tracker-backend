@@ -12,7 +12,15 @@ class Scraper
     doc = Nokogiri::HTML(open(url))
     x = doc.search("a").map{|e| OBJS << e["href"]}
     # x = doc.search("*[contains(@display, 'flex')]").map{|e| e}
-    
+    URLS = []
+
+    OBJS.each do |x|
+        if x.to_s.include? '/currencies/'
+            if !x.include? 'market'
+                URLS << x
+            end
+        end
+    end
     # URLS = []
 
     # COIN_URLS = []
