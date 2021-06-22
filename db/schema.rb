@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_045404) do
+ActiveRecord::Schema.define(version: 2021_06_22_164622) do
 
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_045404) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
-    t.integer "balance"
+    t.string "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
