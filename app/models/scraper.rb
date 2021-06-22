@@ -20,13 +20,18 @@ class Scraper
     end
 
     def self.return_urls
-        urls = []
+        @urls = []
         ARRAY.uniq.each do |x|
             x.to_s
-            urls << ("https://coinmarketcap.com/" + x)
+            @urls << ("https://coinmarketcap.com/" + x)
         end
-        return urls
+        return @urls
     end
+
+    # @urls.each do |x|
+    #     info = Nokogiri::HTML(open(x))
+    #     a = info.search()
+    # end
     # binding.pry
 end
 
