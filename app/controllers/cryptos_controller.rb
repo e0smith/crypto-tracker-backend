@@ -3,7 +3,7 @@ class CryptosController < ApplicationController
 
   # GET /cryptos
   def index
-    @cryptos = Scraper.return_urls
+    @cryptos = Crypto.all
 
     render json: @cryptos
   end
