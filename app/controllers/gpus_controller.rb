@@ -1,9 +1,10 @@
 class GpusController < ApplicationController
   before_action :set_gpu, only: [:show, :update, :destroy]
 
+  require_relative "../models/scraper.rb"
   # GET /gpus
   def index
-    @gpus = Gpu.all
+    @gpus = Scraper::URLS
 
     render json: @gpus
   end
