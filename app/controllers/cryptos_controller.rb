@@ -46,6 +46,7 @@ class CryptosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def crypto_params
-      params.fetch(:crypto, {})
+      params.require(:crypto).permit(:name, :symbol, :image, :current_price, :market_cap, :total_volume, :high_24h, :low_24h,
+       :price_change_24h, :price_change_percentage_24h, :price_change_percentage_7d, :price_change_percentage_14d, :price_change_percentage_30d, :price_change_percentage_60d, :price_change_percentage_1y, :market_cap_change_24h, :market_cap_change_percentage_24h, :total_supply, :circulating_supply)
     end
 end
