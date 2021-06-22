@@ -4,8 +4,8 @@ class GpusController < ApplicationController
   require_relative "../models/scraper.rb"
   # GET /gpus
   def index
-    @gpus = Scraper::URLS
-
+    x = Scraper.return_urls
+    @gpus = x
     render json: @gpus
   end
 

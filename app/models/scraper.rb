@@ -2,56 +2,34 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-
 class Scraper
 
     OBJS = []
+    ARRAY = []
 
     url = "https://coinmarketcap.com/"
-    # url = "https://www.techpowerup.com/gpu-specs/"
     doc = Nokogiri::HTML(open(url))
     x = doc.search("a").map{|e| OBJS << e["href"]}
-    # x = doc.search("*[contains(@display, 'flex')]").map{|e| e}
-    URLS = []
 
     OBJS.each do |x|
         if x.to_s.include? '/currencies/'
             if !x.include? 'market'
-                URLS << x
+                ARRAY << x
             end
         end
     end
-    # URLS = []
 
-    # COIN_URLS = []
-
-    # x.each do |obj|
-    #     if obj.search("href") != ""
-    #         OBJS << obj
-    #     end
-    # end
-
-    # OBJS.each do |obj|
-    #     if obj.search(".cmc-link") != ""
-    #         URLS << obj
-    #     end
-    # end
-
-    # URLS.each do |x|
-    #     if x == ""
-    #         x.delete
-    #     end
-    # end
-
-    # URLS.each do |x|
-    #     if x == x.children.children[0].attributes["href"]
-    #         COIN_URLS << x
-    #     end
-    # end
+    def self.return_urls
+        urls = []
+        ARRAY.uniq.each do |x|
+            x.to_s
+            urls << ("https://coinmarketcap.com/" + x)
+        end
+        return urls
+    end
     # binding.pry
 end
 
-scrape = Scraper.new
 
 
 
