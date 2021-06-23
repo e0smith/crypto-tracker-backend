@@ -5,12 +5,12 @@ class CryptosController < ApplicationController
   def index
     @cryptos = Crypto.all
 
-    render json: @cryptos
+    render json: @cryptos, except: [:created_at, :updated_at]
   end
 
   # GET /cryptos/1
   def show
-    render json: @crypto
+    render json: @crypto, except: [:created_at, :updated_at]
   end
 
   # POST /cryptos
