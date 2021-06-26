@@ -46,6 +46,6 @@ class PortfoliosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.fetch(:portfolio, {})
+      params.require(:portfolio).permit(:name, :quantity)
     end
 end
