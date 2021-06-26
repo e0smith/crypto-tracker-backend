@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_164622) do
 
   create_table "portfolios", force: :cascade do |t|
     t.string "name"
-    t.string "balance"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
