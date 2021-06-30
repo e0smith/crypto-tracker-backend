@@ -3,9 +3,10 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios
   def index
-    @portfolios = Portfolio.all
+    user = User.find_by(id: params[:user_id])
+    portfolios = user.portfolios
 
-    render json: @portfolios
+    render json: portfolios
   end
 
   # GET /portfolios/1
@@ -46,6 +47,6 @@ class PortfoliosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.require(:portfolio).permit(:name, :quantity)
+      params.require(:portfolio).permit(:name, :quantity, :user_id)
     end
 end
