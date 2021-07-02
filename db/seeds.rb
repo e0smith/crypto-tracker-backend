@@ -28,3 +28,9 @@ cryptoArray.each do |coin|
 
 end
 
+User.find_or_create_by(
+    id: 0,
+    username: "default",
+    password_digest: "default"
+)
+
